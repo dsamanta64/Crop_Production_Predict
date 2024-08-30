@@ -133,20 +133,26 @@ header {
     background-color: #45a049;
 }
 
-h1.predict {
+#prediction-form {
+    margin-bottom: 30px; /* Add space below the form */
+}
+
+#prediction {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 19vh;
+    height: 15vh; /* Decreased height */
+    width: 45%; /* Adjusted width, you can modify this value as needed */
     background-color: #7FC7D9;
     transition: background-color 0.3s;
     border: 2px solid #fff;
     border-radius: 10% / 20%;
-    padding-left: 10px;
-    padding-right: 10px;
-
+    padding: 5px 10px; /* Adjust padding */
+    margin: 0 auto; /* Centers the element horizontally */
+    font-size: 24px; /* Increase font size */
 }
+
 
 
 .footer{

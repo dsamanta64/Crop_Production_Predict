@@ -1,4 +1,4 @@
-from flask import Flask,request, render_template
+from flask import Flask,request, render_template,jsonify
 import numpy as np
 import pickle
 import sklearn
@@ -29,14 +29,16 @@ def predict():
         fertilizer  = request.form['fertilizer']
         pesticide  = request.form['pesticide']
 
-        print(" crop: ",crop)
         # create an array of the input features
         features = np.array([crop,crop_year,season,state,area,annual_rainfall,fertilizer,pesticide]).reshape(1,-1)
 
         # Make the prediction
         predicted_yield = pipeline.predict(features)
 
-        return render_template('index.html',prediction = predicted_yield[0])
+        # Return the result as JSON
+        return jsonify({'prediction': predicted_yield[0]})
+
+        # return render_template('index.html',prediction = predicted_yield[0])
 
 if __name__=="__main__":
     app.run(debug=True)

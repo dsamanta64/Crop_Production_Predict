@@ -7,6 +7,27 @@
     <link rel="icon" href="static/logo.jpeg" />
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Create a FormData object to gather the form data
+            const formData = new FormData(event.target);
+
+            // Make an AJAX request to the server
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the prediction result
+                document.getElementById('prediction').innerHTML = `Predicted Crop Production (in metric tons): <br>${data.prediction}`;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -32,8 +53,8 @@
 
     <section id="input-form">
         <h3>Start Predicting Your Crop Production</h3>
-        <form action="/predict" method="post">
-
+        <!-- <form action="/predict" method="post"> -->
+        <form id="prediction-form" onsubmit="submitForm(event)">
             <label for="crop">Crop:</label>
             <select id="crop" name="crop">
                 <option value="Arecanut">Arecanut</option>
@@ -142,26 +163,28 @@
             </select>
 
             <label for="area">Area (in hectares):</label>
-            <input type="number" id="area" name="area" placeholder="e.g., 100" step="0.001" required>
+            <input type="number" id="area" name="area" placeholder="e.g., 100.7" step="0.001" required>
 
-            <label for="rainfall">Annual Rainfall (in mm):</label>
-            <input type="number" id="rainfall" name="rainfall" placeholder="e.g., 1200" step="0.001" required>
+            <label for="rainfall">Annual Rainfall (in millimeters):</label>
+            <input type="number" id="rainfall" name="rainfall" placeholder="e.g., 200.002" step="0.001" required>
 
-            <label for="fertilizer">Fertilizer (kg/hectare):</label>
-            <input type="number" id="fertilizer" name="fertilizer" placeholder="e.g., 50" step="0.001" required>
+            <label for="fertilizer">Fertilizer (in kilograms):</label>
+            <input type="number" id="fertilizer" name="fertilizer" placeholder="e.g., 1450.05" step="0.001" required>
 
-            <label for="pesticide">Pesticide (kg/hectare):</label>
-            <input type="number" id="pesticide" name="pesticide" placeholder="e.g., 20" step="0.001" required>
+            <label for="pesticide">Pesticide (in kilograms):</label>
+            <input type="number" id="pesticide" name="pesticide" placeholder="e.g., 3420.43" step="0.001" required>
 
             <button type="submit">Predict Yield</button>
         </form>
 
-        <div>
+        <div id="prediction"></div>
+
+        <!-- <div>
             {% if prediction %}
-            <h1 class="predict"> Predicted Crop Production: <br>{{prediction}}</h1>
+            <h1 class="prediction"> Predicted Crop Production (in metric tons): <br>{{prediction}}</h1>
 
             {% endif %}
-        </div>
+        </div> -->
     </section>
 
     <footer class="footer">
