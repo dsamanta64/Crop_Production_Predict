@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YieldPredictor - Predict Crop Yield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div id="config-header">
+          <div class="logo">
+            <!-- <img src="static/logo.jpeg" alt="Logo" /> -->
+          </div>
+          <nav>
+            <ul>
+              <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+    <section id="hero">
+        <div class="hero-text">
+            <h2>Welcome to YieldPredictor</h2>
+            <p>Accurately Predict Crop Yields Using Advanced Data Analytics</p>
+        </div>
+    </section>
+
+    <section id="input-form">
+        <h3>Start Predicting Your Crop Yield</h3>
+        <form action="/predict" method="post">
+
+            <label for="crop">Crop:</label>
+            <select id="crop" name="crop">
+                <option value="Arecanut">Arecanut</option>
+                <option value="Arhar/Tur">Arhar/Tur</option>
+                <option value="Castor Seed">Castor seed</option>
+                <option value="Coconut">Coconut</option>
+                <option value="Cotton (Lint)">Cotton (lint)</option>
+                <option value="Dry Chillies">Dry chillies</option>
+                <option value="Gram">Gram</option>
+                <option value="Jute">Jute</option>
+                <option value="Linseed">Linseed</option>
+                <option value="Maize">Maize</option>
+                <option value="Mesta">Mesta</option>
+                <option value="Niger Seed">Niger seed</option>
+                <option value="Onion">Onion</option>
+                <option value="Other Rabi Pulses">Other Rabi pulses</option>
+                <option value="Potato">Potato</option>
+                <option value="Rapeseed & Mustard">Rapeseed & Mustard</option>
+                <option value="Rice">Rice</option>
+                <option value="Sesamum">Sesamum</option>
+                <option value="Small Millets">Small millets</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Sweet Potato">Sweet potato</option>
+                <option value="Tapioca">Tapioca</option>
+                <option value="Tobacco">Tobacco</option>
+                <option value="Turmeric">Turmeric</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Bajra">Bajra</option>
+                <option value="Black Pepper">Black pepper</option>
+                <option value="Cardamom">Cardamom</option>
+                <option value="Coriander">Coriander</option>
+                <option value="Garlic">Garlic</option>
+                <option value="Ginger">Ginger</option>
+                <option value="Groundnut">Groundnut</option>
+                <option value="Horse-gram">Horse-gram</option>
+                <option value="Jowar">Jowar</option>
+                <option value="Ragi">Ragi</option>
+                <option value="Cashewnut">Cashewnut</option>
+                <option value="Banana">Banana</option>
+                <option value="Soyabean">Soyabean</option>
+                <option value="Barley">Barley</option>
+                <option value="Khesari">Khesari</option>
+                <option value="Masoor">Masoor</option>
+                <option value="Moong (Green Gram)">Moong (Green Gram)</option>
+                <option value="Other Kharif Pulses">Other Kharif pulses</option>
+                <option value="Safflower">Safflower</option>
+                <option value="Sannhamp">Sannhamp</option>
+                <option value="Sunflower">Sunflower</option>
+                <option value="Urad">Urad</option>
+                <option value="Peas & Beans (Pulses)">Peas & beans (Pulses)</option>
+                <option value="Other Oilseeds">Other oilseeds</option>
+                <option value="Other Cereals">Other Cereals</option>
+                <option value="Cowpea Lobia">Cowpea (Lobia)</option>
+                <option value="Oilseeds Total">Oilseeds total</option>
+                <option value="Guar Seed">Guar seed</option>
+                <option value="Other Summer Pulses">Other Summer Pulses</option>
+                <option value="Moth">Moth</option>
+                
+            </select>
+
+            <label for="year">Crop Year:</label>
+            <input type="number" id="year" name="year" placeholder="e.g., 2012" required>
+
+            <label for="season">Season:</label>
+            <select id="season" name="season">
+                <option value="Whole Year">Whole Year</option>
+                <option value="Kharif">Kharif</option>
+                <option value="Rabi">Rabi</option>
+                <option value="Autumn">Autumn</option>
+                <option value="Summer">Summer</option>
+                <option value="Winter">Winter</option>
+            </select>
+
+            <label for="state">State:</label>
+            <select id="state" name="state">
+                <option value="Assam">Assam</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Goa">Goa</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Sikkim">Sikkim</option>                
+            </select>
+
+            <label for="area">Area (in hectares):</label>
+            <input type="number" id="area" name="area" placeholder="e.g., 100" step="0.001" required>
+
+            <label for="rainfall">Annual Rainfall (in mm):</label>
+            <input type="number" id="rainfall" name="rainfall" placeholder="e.g., 1200" step="0.001" required>
+
+            <label for="fertilizer">Fertilizer (kg/hectare):</label>
+            <input type="number" id="fertilizer" name="fertilizer" placeholder="e.g., 50" step="0.001" required>
+
+            <label for="pesticide">Pesticide (kg/hectare):</label>
+            <input type="number" id="pesticide" name="pesticide" placeholder="e.g., 20" step="0.001" required>
+
+            <button type="submit">Predict Yield</button>
+        </form>
+
+        <div>
+            {% if prediction %}
+            <h1 class="predict"> Predicted Yield: <br>{{prediction}}</h1>
+
+            {% endif %}
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 YieldPredictor. All rights reserved.</p>
+    </footer>
+</body>
+</html>
