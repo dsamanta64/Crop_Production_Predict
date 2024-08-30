@@ -1,24 +1,63 @@
-<h1>About Dataset</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CropVision</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div id="config-header">
+            <div class="logo">
+            <img src="static/logo.jpeg" alt="Logo" />
+            </div>
+            <nav>
+            <ul>
+                <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="/about">About Us</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="about_container">
+        <div class="content">
+            <h1>About Crop Production Prediction Using Machine Learning</h1>
+            <p>Welcome to the Crop Production Prediction page! Our goal is to provide accurate forecasts for crop production using advanced machine learning techniques.</p>
+            
+            <h2>Dataset Overview</h2>
+            <p>Our dataset comprises comprehensive agricultural data from various states across India, spanning from 1997 to 2020. It includes essential features necessary for predicting crop yield, encompassing different crop types, cultivation years, cropping seasons, and several environmental and agricultural factors.</p>
+            
+            <h2>Columns Description</h2>
+            <p><strong>Input Features:</strong></p>
+            <ul>
+                <li><strong>Crop:</strong> The specific type of crop being cultivated.</li>
+                <li><strong>Crop_Year:</strong> The year in which the crop was grown.</li>
+                <li><strong>Season:</strong> The cropping season during which the crop was planted, such as Kharif, Rabi, or Whole Year.</li>
+                <li><strong>State:</strong> The Indian state where the crop was cultivated.</li>
+                <li><strong>Area:</strong> The total land area (measured in hectares) dedicated to the cultivation of the crop.</li>
+                <li><strong>Annual_Rainfall:</strong> The total annual rainfall received in the region where the crop was grown (measured in millimeters).</li>
+                <li><strong>Fertilizer:</strong> The total amount of fertilizer applied to the crop (measured in kilograms).</li>
+                <li><strong>Pesticide:</strong> The total amount of pesticide used on the crop (measured in kilograms).</li>
+            </ul>
+            <p><strong>Output Feature:</strong></p>
+            <ul>
+                <li><strong>Production:</strong> The resulting quantity of crop production (measured in metric tons).</li>
+            </ul>
+            
+            <h2>Machine Learning Model</h2>
+            <p>To predict crop production, we utilize the RandomForest Regressor, a robust machine learning model known for its accuracy and ability to handle complex datasets. Our model has achieved an impressive R² score of 98%, reflecting its high predictive accuracy and effectiveness.</p>
+            
+            <p>By training our model on this diverse dataset, we aim to provide reliable predictions that can help farmers, agricultural planners, and policymakers make informed decisions.</p>
+            
+            <p>Our predictive model considers various factors such as crop type, cultivation area, seasonal patterns, and environmental conditions to generate accurate forecasts of crop production. We are committed to leveraging data-driven insights to support sustainable agricultural practices and enhance productivity.</p>
+            
+            <p>Thank you for visiting our Crop Production Prediction page. We hope our model and insights prove valuable to your agricultural endeavors!</p>
+        </div>
+    </div>
 
-<h2>This dataset encompasses agricultural data for multiple crops cultivated 
-across various states in India from the year 1997 till 2020. 
-The dataset provides crucial features related to crop yield prediction, 
-including crop types, crop years, cropping seasons, states, areas under cultivation, 
-production quantities, annual rainfall, fertilizer usage, pesticide usage, and calculated yields. </h2>
-
-
-
-Columns Description:
-
- ** input features ~
-1.Crop: The name of the crop cultivated.
-2.Crop_Year: The year in which the crop was grown.
-3.Season: The specific cropping season (e.g., Kharif, Rabi, Whole Year).
-4.State: The Indian state where the crop was cultivated.
-5.Area: The total land area (in hectares) under cultivation for the specific crop.
-6.Annual_Rainfall: The annual rainfall received in the crop-growing region (in mm).
-7.Fertilizer: The total amount of fertilizer used for the crop (in kilograms).
-8.Pesticide: The total amount of pesticide used for the crop (in kilograms).
-
- ** output feature ~
-9.Production: The quantity of crop production (in metric tons).
+    <footer class="footer">
+        <p>&copy; 2024 CropVision. All rights reserved.</p>
+    </footer>
+</body>
+</html>

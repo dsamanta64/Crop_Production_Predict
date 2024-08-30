@@ -26,6 +26,18 @@ header {
 
 #config-header .logo {
     font-size: 1rem;
+    position: relative;
+    left: -40px; /* Adjust the value to move the logo left */
+    display: flex;
+    align-items: center; /* Vertically centers the logo */
+}
+#config-header .logo img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 100%; /* Ensures the image doesn't exceed its container's width */
+    border-radius: 50%; /* Makes the image a circle */
+    object-fit: cover; /* Ensures the image covers the entire circle */
+    margin-top: 7px; /* Adjust as needed */
 }
 
 #config-header nav {
@@ -41,15 +53,15 @@ header {
 }
 
 #config-header nav ul li {
-    margin-left: 9px;
+    margin-left: 30px;
 }
 
 #config-header nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: background-color 0.5s;
-    padding: 0.3rem;
+    padding: 0.1rem;
 }
 
 #config-header nav ul li a:hover {
@@ -68,13 +80,15 @@ header {
     text-align: center;
 }
 
+
 #hero .hero-text h2 {
     font-size: 3rem;
     margin: 0;
 }
 
 #hero .hero-text p {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    color: #00BBF0;
 }
 
 #input-form {
@@ -145,4 +159,27 @@ h1.predict {
     justify-content: center;
     align-items: space-evenly;
     font-size:larger;
+}
+/* ----------------******* about *******-------------- */
+#about_container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+#about_container h1, h2 {
+    color: #333;
+}
+#about_container ul {
+    list-style-type: none;
+    padding: 0;
+}
+#about_container ul li {
+    padding: 8px 0;
+}
+#about_container .content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

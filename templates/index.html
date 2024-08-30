@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YieldPredictor - Predict Crop Yield</title>
+    <title>CropVision</title>
+    <link rel="icon" href="static/logo.jpeg" />
+
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
         <div id="config-header">
           <div class="logo">
-            <!-- <img src="static/logo.jpeg" alt="Logo" /> -->
+            <img src="static/logo.jpeg" alt="Logo" />
           </div>
           <nav>
             <ul>
               <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="/about">About Us</a></li>
             </ul>
           </nav>
         </div>
@@ -25,13 +25,13 @@
 
     <section id="hero">
         <div class="hero-text">
-            <h2>Welcome to YieldPredictor</h2>
-            <p>Accurately Predict Crop Yields Using Advanced Data Analytics</p>
+            <h2>Welcome to CropVision</h2>
+            <p>Accurately Predict Crop Production Using Advanced Data Analytics</p>
         </div>
     </section>
 
     <section id="input-form">
-        <h3>Start Predicting Your Crop Yield</h3>
+        <h3>Start Predicting Your Crop Production</h3>
         <form action="/predict" method="post">
 
             <label for="crop">Crop:</label>
@@ -158,14 +158,14 @@
 
         <div>
             {% if prediction %}
-            <h1 class="predict"> Predicted Yield: <br>{{prediction}}</h1>
+            <h1 class="predict"> Predicted Crop Production: <br>{{prediction}}</h1>
 
             {% endif %}
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 YieldPredictor. All rights reserved.</p>
+        <p>&copy; 2024 CropVision. All rights reserved.</p>
     </footer>
 </body>
 </html>
