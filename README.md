@@ -39,7 +39,7 @@ Our predictive model takes into account various factors such as crop type, culti
     
 <ol>
             <li> Clone the repository:<br><br> 
-git clone https://github.com/debabrata64/Crop_Production_Predict.git</li><br>
+git clone https://github.com/dsamanta64/Crop_Production_Predict.git</li><br>
             <li> Change to the project directory:<br><br>
 cd Crop_Production_Predict</li><br>
             <li> Install the required Python packages:<br><br>
